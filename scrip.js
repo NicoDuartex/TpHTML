@@ -1,45 +1,36 @@
+// JavaScript para manejar la lógica del cálculo
+console.log("Archivo JavaScript cargado"); // Verifica que se carga correctamente
 
-        // JavaScript para manejar la lógica del cálculo
-        document.getElementById('calcular').addEventListener('click', function () {
-            const form = document.forms['presupuestoForm'];
-            // Obtiene el formulario para manipular sus elementos
-            let subtotal = 0;
-            // Inicializa la variable subtotal
+document.getElementById('calcular').addEventListener('click', function () {
+    console.log("Botón Calcular presionado"); // Verifica que se ejecuta
+    const form = document.forms['presupuestoForm'];
+    let subtotal = 0;
 
-            for (let i = 1; i <= 5; i++) {
-                // Itera sobre los 5 productos
-                const cantidad = form[`cantidad${i}`].value;
-                const precioUnitario = form[`precioUnitario${i}`].value;
-                // Obtiene la cantidad y el precio unitario del producto actual
-                const precioTotal = cantidad * precioUnitario;
-                // Calcula el precio total del producto
+    for (let i = 1; i <= 5; i++) {
+        const cantidad = form[`cantidad${i}`].value;
+        const precioUnitario = form[`precioUnitario${i}`].value;
+        const precioTotal = cantidad * precioUnitario;
 
-                if (precioTotal > 0) {
-                    form[`precio${i}`].value = precioTotal.toFixed(2);
-                    // Establece el precio total en el campo correspondiente
-                    subtotal += parseFloat(precioTotal);
-                    // Suma el precio total al subtotal
-                }
-            }
+        if (precioTotal > 0) {
+            form[`precio${i}`].value = precioTotal.toFixed(2);
+            subtotal += parseFloat(precioTotal);
+        }
+    }
 
-            const iva = subtotal * 0.21;
-            // Calcula el IVA del subtotal
-            const total = subtotal + iva;
-            // Calcula el total sumando el IVA al subtotal
-            const cuota12 = total / 12;
-            const cuota18 = (total * 1.35) / 18;
-            // Calcula las cuotas para 12 y 18 meses
+    const iva = subtotal * 0.21;
+    const total = subtotal + iva;
+    const cuota12 = total / 12;
+    const cuota18 = (total * 1.35) / 18;
 
-            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
-            document.getElementById('iva').textContent = iva.toFixed(2);
-            document.getElementById('total').textContent = total.toFixed(2);
-            document.getElementById('valorCuota12').textContent = cuota12.toFixed(2);
-            document.getElementById('valorCuota18').textContent = cuota18.toFixed(2);
-            // Muestra los resultados calculados en la interfaz
-        });
+    document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+    document.getElementById('iva').textContent = iva.toFixed(2);
+    document.getElementById('total').textContent = total.toFixed(2);
+    document.getElementById('valorCuota12').textContent = cuota12.toFixed(2);
+    document.getElementById('valorCuota18').textContent = cuota18.toFixed(2);
+});
 
-        document.getElementById('imprimir').addEventListener('click', function () {
-            window.print();
-            // Abre el cuadro de diálogo de impresión
-        });
-    
+// Evento para imprimir presupuesto
+document.getElementById('imprimir').addEventListener('click', function () {
+    console.log("Botón Imprimir presionado"); // Verifica que se ejecuta
+    window.print();
+});

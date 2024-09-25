@@ -1,47 +1,30 @@
 <!DOCTYPE html>
-<!-- Declara el tipo de documento como HTML5 -->
 <html lang="es">
-<!-- Inicia el documento HTML y especifica que el idioma es español -->
 <head>
     <meta charset="UTF-8">
-    <!-- Establece la codificación de caracteres en UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Hace que la página sea responsive en dispositivos móviles -->
     <title>Generador de Presupuestos</title>
-    <!-- Título que aparecerá en la pestaña del navegador -->
-    
-    <link rel="stylesheet"  type="text/css" href="styles.css">
-    <script src="scrip.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <!-- Contenedor principal -->
         <h1>Generador de Presupuestos</h1>
-        <!-- Título de la página -->
         <form id="presupuestoForm">
-            <!-- Formulario con ID para referencia en JavaScript -->
             <label for="cliente">Cliente:</label>
-            <!-- Etiqueta para el campo de cliente -->
             <input type="text" id="cliente" name="cliente" required>
-            <!-- Campo de texto para el nombre del cliente (obligatorio) -->
 
             <table>
-                <!-- Tabla para ingresar productos -->
                 <tr>
                     <th>Cantidad</th>
                     <th>Producto</th>
                     <th>Precio Unitario</th>
                     <th>Precio</th>
                 </tr>
-                <!-- Encabezados de la tabla -->
                 <tr>
                     <td><input type="number" name="cantidad1" min="1" required></td>
-                    <!-- Campo para cantidad del producto 1 (obligatorio) -->
                     <td>
                         <select name="producto1">
                             <option value="0">Seleccionar Producto</option>
-                            <!-- Opción por defecto -->
                             <option value="producto1">Producto 1</option>
                             <option value="producto2">Producto 2</option>
                             <option value="producto3">Producto 3</option>
@@ -49,13 +32,9 @@
                             <option value="producto5">Producto 5</option>
                         </select>
                     </td>
-                    <!-- Selección de productos -->
                     <td><input type="number" name="precioUnitario1" step="0.01" required></td>
-                    <!-- Campo para precio unitario del producto 1 (obligatorio) -->
                     <td><input type="number" name="precio1" step="0.01" readonly></td>
-                    <!-- Campo para el precio total del producto 1 (solo lectura) -->
                 </tr>
-                <!-- Se repiten las filas anteriores para productos 2 a 5 -->
                 <tr>
                     <td><input type="number" name="cantidad2" min="1"></td>
                     <td>
@@ -119,7 +98,6 @@
             </table>
 
             <div class="resultados">
-                <!-- Contenedor para mostrar los resultados -->
                 <p>Valor de Cuota Ahora 12 - Sin Interés: <span id="valorCuota12"></span></p>
                 <p>Valor Ahora 18 - 35% de Interés: <span id="valorCuota18"></span></p>
                 <p>Subtotal: <span id="subtotal"></span></p>
@@ -128,10 +106,9 @@
             </div>
 
             <button type="button" id="calcular">Calcular Total</button>
-            <!-- Botón para calcular el total -->
             <button type="button" id="imprimir">Imprimir Presupuesto</button>
-            <!-- Botón para imprimir el presupuesto -->
         </form>
     </div>
+    <script src="scrip.js"></script>
 </body>
 </html>
