@@ -1,115 +1,80 @@
+/* Estilos CSS para la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
 
-        /* Estilos CSS para la página */
-        body {
-            font-family: Arial, sans-serif;
-            /* Establece la fuente del texto */
-            background-color: #f4f4f4;
-            /* Color de fondo de la página */
-            margin: 0;
-            /* Elimina el margen predeterminado */
-            padding: 20px;
-            /* Añade un relleno alrededor del contenido */
-        }
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .container {
-            background-color: white;
-            /* Fondo blanco para el contenedor principal */
-            padding: 20px;
-            /* Espaciado interno */
-            border-radius: 8px;
-            /* Bordes redondeados */
-            max-width: 800px;
-            /* Ancho máximo del contenedor */
-            margin: auto;
-            /* Centra el contenedor horizontalmente */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Añade una sombra sutil */
-        }
+h1 {
+    text-align: center;
+    color: #333;
+}
 
-        h1 {
-            text-align: center;
-            /* Centra el texto del encabezado */
-            color: #333;
-            /* Color del texto del encabezado */
-        }
+form {
+    display: flex;
+    flex-direction: column;
+}
 
-        form {
-            display: flex;
-            /* Utiliza flexbox para el diseño del formulario */
-            flex-direction: column;
-            /* Organiza los elementos en columna */
-        }
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-        label {
-            margin-bottom: 5px;
-            /* Espacio debajo de las etiquetas */
-            font-weight: bold;
-            /* Hace que el texto de las etiquetas sea negrita */
-        }
+input, select {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-        input, select {
-            margin-bottom: 10px;
-            /* Espacio debajo de los campos de entrada y select */
-            padding: 8px;
-            /* Relleno interno para los campos */
-            border: 1px solid #ccc;
-            /* Borde gris claro */
-            border-radius: 4px;
-            /* Bordes redondeados para campos */
-        }
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-        table {
-            width: 100%;
-            /* Hace que la tabla ocupe todo el ancho disponible */
-            margin-bottom: 20px;
-            /* Espacio debajo de la tabla */
-        }
+th, td {
+    padding: 10px;
+    text-align: left;
+}
 
-        th, td {
-            padding: 10px;
-            /* Relleno interno de las celdas de la tabla */
-            text-align: left;
-            /* Alinea el texto a la izquierda */
-        }
+.resultados p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
 
-        .resultados p {
-            font-size: 16px;
-            /* Tamaño de fuente de los resultados */
-            font-weight: bold;
-            /* Hace el texto de los resultados negrita */
-            color: #333;
-            /* Color del texto de los resultados */
-        }
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
 
-        button {
-            padding: 10px;
-            /* Relleno interno para los botones */
-            background-color: #5cb85c;
-            /* Color de fondo verde para el botón */
-            color: white;
-            /* Color del texto del botón */
-            border: none;
-            /* Sin borde para el botón */
-            border-radius: 4px;
-            /* Bordes redondeados para el botón */
-            cursor: pointer;
-            /* Cambia el cursor al pasar sobre el botón */
-            margin-right: 10px;
-            /* Espacio a la derecha del botón */
-        }
+button:hover {
+    background-color: #4cae4c;
+}
 
-        button:hover {
-            background-color: #4cae4c;
-            /* Color de fondo cuando se pasa el ratón por encima */
-        }
+button:last-child {
+    background-color: #337ab7;
+}
 
-        button:last-child {
-            background-color: #337ab7;
-            /* Color de fondo azul para el segundo botón */
-        }
+button:last-child:hover {
+    background-color: #286090;
+}
 
-        button:last-child:hover {
-            background-color: #286090;
-            /* Color de fondo más oscuro al pasar el ratón sobre el segundo botón */
-        }
-    
+button#exportarPdf {
+    background-color: red;
+}
