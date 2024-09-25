@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- Declara el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Inicia el documento HTML y especifica que el idioma es español -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Establece la codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive en dispositivos móviles -->
+    <title>Generador de Presupuestos</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
+    <style>
+        /* Estilos CSS para la página */
+        body {
+            font-family: Arial, sans-serif;
+            /* Establece la fuente del texto */
+            background-color: #f4f4f4;
+            /* Color de fondo de la página */
+            margin: 0;
+            /* Elimina el margen predeterminado */
+            padding: 20px;
+            /* Añade un relleno alrededor del contenido */
+        }
+
+        .container {
+            background-color: white;
+            /* Fondo blanco para el contenedor principal */
+            padding: 20px;
+            /* Espaciado interno */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            max-width: 800px;
+            /* Ancho máximo del contenedor */
+            margin: auto;
+            /* Centra el contenedor horizontalmente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Añade una sombra sutil */
+        }
+
+        h1 {
+            text-align: center;
+            /* Centra el texto del encabezado */
+            color: #333;
+            /* Color del texto del encabezado */
+        }
+
+        form {
+            display: flex;
+            /* Utiliza flexbox para el diseño del formulario */
+            flex-direction: column;
+            /* Organiza los elementos en columna */
+        }
+
+        label {
+            margin-bottom: 5px;
+            /* Espacio debajo de las etiquetas */
+            font-weight: bold;
+            /* Hace que el texto de las etiquetas sea negrita */
+        }
+
+        input, select {
+            margin-bottom: 10px;
+            /* Espacio debajo de los campos de entrada y select */
+            padding: 8px;
+            /* Relleno interno para los campos */
+            border: 1px solid #ccc;
+            /* Borde gris claro */
+            border-radius: 4px;
+            /* Bordes redondeados para campos */
+        }
+
+        table {
+            width: 100%;
+            /* Hace que la tabla ocupe todo el ancho disponible */
+            margin-bottom: 20px;
+            /* Espacio debajo de la tabla */
+        }
+
+        th, td {
+            padding: 10px;
+            /* Relleno interno de las celdas de la tabla */
+            text-align: left;
+            /* Alinea el texto a la izquierda */
+        }
+
+        .resultados p {
+            font-size: 16px;
+            /* Tamaño de fuente de los resultados */
+            font-weight: bold;
+            /* Hace el texto de los resultados negrita */
+            color: #333;
+            /* Color del texto de los resultados */
+        }
+
+        button {
+            padding: 10px;
+            /* Relleno interno para los botones */
+            background-color: #5cb85c;
+            /* Color de fondo verde para el botón */
+            color: white;
+            /* Color del texto del botón */
+            border: none;
+            /* Sin borde para el botón */
+            border-radius: 4px;
+            /* Bordes redondeados para el botón */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el botón */
+            margin-right: 10px;
+            /* Espacio a la derecha del botón */
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+            /* Color de fondo cuando se pasa el ratón por encima */
+        }
+
+        button:last-child {
+            background-color: #337ab7;
+            /* Color de fondo azul para el segundo botón */
+        }
+
+        button:last-child:hover {
+            background-color: #286090;
+            /* Color de fondo más oscuro al pasar el ratón sobre el segundo botón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Contenedor principal -->
+        <h1>Generador de Presupuestos</h1>
+        <!-- Título de la página -->
+        <form id="presupuestoForm">
+            <!-- Formulario con ID para referencia en JavaScript -->
+            <label for="cliente">Cliente:</label>
+            <!-- Etiqueta para el campo de cliente -->
+            <input type="text" id="cliente" name="cliente" required>
+            <!-- Campo de texto para el nombre del cliente (obligatorio) -->
+
+            <table>
+                <!-- Tabla para ingresar productos -->
+                <tr>
+                    <th>Cantidad</th>
+                    <th>Producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Precio</th>
+                </tr>
+                <!-- Encabezados de la tabla -->
+                <tr>
+                    <td><input type="number" name="cantidad1" min="1" required></td>
+                    <!-- Campo para cantidad del producto 1 (obligatorio) -->
+                    <td>
+                        <select name="producto1">
+                            <option value="0">Seleccionar Producto</option>
+                            <!-- Opción por defecto -->
+                            <option value="producto1">Producto 1</option>
+                            <option value="producto2">Producto 2</option>
+                            <option value="producto3">Producto 3</option>
+                            <option value="producto4">Producto 4</option>
+                            <option value="producto5">Producto 5</option>
+                        </select>
+                    </td>
+                    <!-- Selección de productos -->
+                    <td><input type="number" name="precioUnitario1" step="0.01" required></td>
+                    <!-- Campo para precio unitario del producto 1 (obligatorio) -->
+                    <td><input type="number" name="precio1" step="0.01" readonly></td>
+                    <!-- Campo para el precio total del producto 1 (solo lectura) -->
+                </tr>
+                <!-- Se repiten las filas anteriores para productos 2 a 5 -->
+                <tr>
+                    <td><input type="number" name="cantidad2" min="1"></td>
+                    <td>
+                        <select name="producto2">
+                            <option value="0">Seleccionar Producto</option>
+                            <option value="producto1">Producto 1</option>
+                            <option value="producto2">Producto 2</option>
+                            <option value="producto3">Producto 3</option>
+                            <option value="producto4">Producto 4</option>
+                            <option value="producto5">Producto 5</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="precioUnitario2" step="0.01"></td>
+                    <td><input type="number" name="precio2" step="0.01" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="cantidad3" min="1"></td>
+                    <td>
+                        <select name="producto3">
+                            <option value="0">Seleccionar Producto</option>
+                            <option value="producto1">Producto 1</option>
+                            <option value="producto2">Producto 2</option>
+                            <option value="producto3">Producto 3</option>
+                            <option value="producto4">Producto 4</option>
+                            <option value="producto5">Producto 5</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="precioUnitario3" step="0.01"></td>
+                    <td><input type="number" name="precio3" step="0.01" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="cantidad4" min="1"></td>
+                    <td>
+                        <select name="producto4">
+                            <option value="0">Seleccionar Producto</option>
+                            <option value="producto1">Producto 1</option>
+                            <option value="producto2">Producto 2</option>
+                            <option value="producto3">Producto 3</option>
+                            <option value="producto4">Producto 4</option>
+                            <option value="producto5">Producto 5</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="precioUnitario4" step="0.01"></td>
+                    <td><input type="number" name="precio4" step="0.01" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="cantidad5" min="1"></td>
+                    <td>
+                        <select name="producto5">
+                            <option value="0">Seleccionar Producto</option>
+                            <option value="producto1">Producto 1</option>
+                            <option value="producto2">Producto 2</option>
+                            <option value="producto3">Producto 3</option>
+                            <option value="producto4">Producto 4</option>
+                            <option value="producto5">Producto 5</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="precioUnitario5" step="0.01"></td>
+                    <td><input type="number" name="precio5" step="0.01" readonly></td>
+                </tr>
+            </table>
+
+            <div class="resultados">
+                <!-- Contenedor para mostrar los resultados -->
+                <p>Valor de Cuota Ahora 12 - Sin Interés: <span id="valorCuota12"></span></p>
+                <p>Valor Ahora 18 - 35% de Interés: <span id="valorCuota18"></span></p>
+                <p>Subtotal: <span id="subtotal"></span></p>
+                <p>IVA: <span id="iva"></span></p>
+                <p>Total: <span id="total"></span></p>
+            </div>
+
+            <button type="button" id="calcular">Calcular Total</button>
+            <!-- Botón para calcular el total -->
+            <button type="button" id="imprimir">Imprimir Presupuesto</button>
+            <!-- Botón para imprimir el presupuesto -->
+        </form>
+    </div>
+
+    <script>
+        // JavaScript para manejar la lógica del cálculo
+        document.getElementById('calcular').addEventListener('click', function () {
+            const form = document.forms['presupuestoForm'];
+            // Obtiene el formulario para manipular sus elementos
+            let subtotal = 0;
+            // Inicializa la variable subtotal
+
+            for (let i = 1; i <= 5; i++) {
+                // Itera sobre los 5 productos
+                const cantidad = form[`cantidad${i}`].value;
+                const precioUnitario = form[`precioUnitario${i}`].value;
+                // Obtiene la cantidad y el precio unitario del producto actual
+                const precioTotal = cantidad * precioUnitario;
+                // Calcula el precio total del producto
+
+                if (precioTotal > 0) {
+                    form[`precio${i}`].value = precioTotal.toFixed(2);
+                    // Establece el precio total en el campo correspondiente
+                    subtotal += parseFloat(precioTotal);
+                    // Suma el precio total al subtotal
+                }
+            }
+
+            const iva = subtotal * 0.21;
+            // Calcula el IVA del subtotal
+            const total = subtotal + iva;
+            // Calcula el total sumando el IVA al subtotal
+            const cuota12 = total / 12;
+            const cuota18 = (total * 1.35) / 18;
+            // Calcula las cuotas para 12 y 18 meses
+
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('iva').textContent = iva.toFixed(2);
+            document.getElementById('total').textContent = total.toFixed(2);
+            document.getElementById('valorCuota12').textContent = cuota12.toFixed(2);
+            document.getElementById('valorCuota18').textContent = cuota18.toFixed(2);
+            // Muestra los resultados calculados en la interfaz
+        });
+
+        document.getElementById('imprimir').addEventListener('click', function () {
+            window.print();
+            // Abre el cuadro de diálogo de impresión
+        });
+    </script>
+</body>
+</html>
