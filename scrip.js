@@ -36,13 +36,15 @@ document.getElementById('exportarPdf').addEventListener('click', function () {
     doc.setFontSize(18);
     doc.text("Presupuestos mecatrónica", 10, 10);
     const form = document.forms['presupuestoForm'];
+    const Cliente = form[`cliente`].value;
+    doc.text(`Cliente: ${Cliente}`, 10, 20);
     for (let i = 1; i <= 5; i++) {
         const cantidad = form[`cantidad${i}`].value;
         const precioUnitario = form[`precioUnitario${i}`].value;
         const precioTotal = cantidad * precioUnitario;
-        doc.text(`Cantidad: ${cantidad}`, 10, i*22 );
-        doc.text(`Precio Unitario: ${precioUnitario}`, 50, i*22);
-        doc.text(`Precio Total: ${precioTotal}`, 110 , i*22);
+        doc.text(`Cantidad: ${cantidad}`, 10, i*30 );
+        doc.text(`Precio Unitario: ${precioUnitario}`, 50, i*30);
+        doc.text(`Precio Total: ${precioTotal}`, 110 , i*30);
     }
     const subtotal = document.getElementById('subtotal').textContent;
     const iva = document.getElementById('iva').textContent;
